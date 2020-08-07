@@ -6,9 +6,24 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    # create a dict to hold onto tickets
+    mydict={}
+    
+    counter = 0
+    # put tickets in dict
+    for ticket in tickets:
+        mydict[ticket.source] = ticket.destination
 
-    return route
+    route = []
+    count = 0
+     # add the start
+    place = mydict['NONE']
+    route.append(place)
+    while len(route) < length:
+        # accumulate destinations
+        next = mydict[route[count]]
+        route.append(next)
+        count += 1
+    return route 
+    
+        

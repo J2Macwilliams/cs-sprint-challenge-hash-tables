@@ -2,9 +2,26 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    # need a dict
+    mydict = {}
+    
+    # need a counter
+    # run through the grid and and to dictionary
+    for row in arrays:
+        for col in row:
+            if col not in mydict:
+                mydict[col] = 0
+            mydict[col] += 1
 
+    length = (len(arrays))
+    # tuple objects in dict
+    # filter using comprehension on values
+    new_dict = {key:value for (key,value) in mydict.items() if value == length}
+    # convert to list
+    result = list(new_dict.keys())
+    
     return result
+
 
 
 if __name__ == "__main__":
